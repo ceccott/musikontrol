@@ -1,0 +1,24 @@
+{
+  "name": "midi-server",
+  "version": "1.0.0",
+  "description": "server to be run on the host for midi-message delivery",
+  "main": "App.js",
+  "scripts": {
+    "run": "node App.js",
+    "start": "nodemon App.js"
+  },
+  "keywords": [
+    "midi",
+    "server",
+    "musikontrol"
+  ],
+  "author": "Leonardo Cecconi",
+  "license": "MIT",
+  "dependencies": {
+    "easymidi": "^1.0.1",
+    "socket.io": "^2.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4"
+  }
+}

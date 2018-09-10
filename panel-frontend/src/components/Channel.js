@@ -11,16 +11,19 @@ class Channel extends Component{
         super(props);
         this.state = {
             ch_label:"Channel",
-            k_gain:50,
+            k_gain:50, // default values init
             k_high:50,
             k_mid:50,
             k_low:50,
-            s_volume:30
+            s_volume:30,
+            midi_channel:0
         };
 
         this.slider_style={
             orientation:'vertical',
-            tooltip:false
+            tooltip:false,
+            min:'0',
+            max:'127'
         }
 
         this.knob_style={
@@ -31,7 +34,9 @@ class Channel extends Component{
             lineCap:'butt',
             width:'200',
             height:'200',
-            bgColor:'#444'
+            bgColor:'#444',
+            min:'0',
+            max:'127'
         }
     }
 
@@ -61,6 +66,13 @@ class Channel extends Component{
 
     knobOnChange_high = (newValue) => {
         this.setState({k_high:newValue})
+        this.props.socket.emit('midi',{
+            type:'cc',
+            data:{
+                channel:this.state.midi_channel,
+                controller:2,
+                value:newValue
+        }}); 
     }
 
     knobOnChange_mid = (newValue) => {

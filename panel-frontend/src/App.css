@@ -3,19 +3,35 @@
 }
 
 .App-logo {
+  float:left;
   animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  height: 50px;
 }
 
 .App-header {
   background-color: #222;
-  height: 150px;
+  height: 50px;
   padding: 20px;
   color: white;
 }
 
+.App-title {
+  float:left;
+  padding-left:22px;
+  font-size: 1.5em;
+}
+
 .App-body {
-  padding: 40px;
+  height: 100%; 
+  overflow: hidden;
+  background:#444;
+  padding: 3em 0;
+  margin: 0;
+  position:fixed;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 .App-title {
@@ -25,6 +41,7 @@
 .App-intro {
   font-size: large;
 }
+
 
 .grid-container{
     background:#fff;

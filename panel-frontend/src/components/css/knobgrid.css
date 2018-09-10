@@ -1,0 +1,30 @@
+
+.knob-grid{
+    background:#222;
+    height:100%;
+    width:100%;
+    max-height: 60vh;
+    max-width: 60vh;
+    /*overflow:hidden;*/
+    margin:2%;
+    padding:3% 3%;
+    display:grid;
+    border-radius:3%;
+    /*grid-gap:1%;*/
+    /*grid-template-rows:1fr;*/
+    grid-template-columns:1fr 1fr 1fr;
+}
+
+
+.gknob{
+    outline:0;
+    height:100%;
+    margin:auto;
+    max-width:10vw;
+    max-height:10vh;
+}
+
+.gknob:after{
+    max-width:10vw;
+    max-height:10vh;
+}

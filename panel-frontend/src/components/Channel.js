@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styles from './Channel.css';
+import styles from './css/channel.css';
 import Knob from 'react-canvas-knob';
 import Slider from 'react-rangeslider'
 import './css/slider.css'
@@ -32,8 +32,8 @@ class Channel extends Component{
             displayInput:false,
             thickness:'0.4',
             lineCap:'butt',
-            width:'200',
-            height:'200',
+            width:'150',
+            height:'150',
             bgColor:'#444',
             min:'0',
             max:'127'
@@ -101,7 +101,7 @@ class Channel extends Component{
                     <Slider className="slider" {...this.slider_style} value={this.state.s_volume} onChange={this.sliderOnChange}/>
                 </div>
             </div>
-            <h2 class="label">{this.state.ch_label}</h2>
+            <div class="label">{this.state.ch_label}</div>
          </div>
         );
     }

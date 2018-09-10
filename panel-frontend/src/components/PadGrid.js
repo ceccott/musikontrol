@@ -13,14 +13,24 @@ class PadGrid extends Component {
         }
     }
 
-    render() {
-        this.gridelements = [];
-        for (var i = 0, len = this.props.pad_num; i < len; i++) {
-            this.gridelements.push(<button className='pad'/>);
+    createGrid(){
+        let grid = [];
+        
+        for (var row = 0, len = Math.sqrt(this.props.pad_num); row < len; row++) {
+            let grid_row = [];
+                for (var el = 0, elnum = Math.sqrt(this.props.pad_num); el < elnum; el++) {
+                    grid_row.push(<button className='pad'/>);
+                }
+            grid.push(<div class='row'>{grid_row}</div>);
         }
+
+        return grid;
+    }
+
+    render() {
         return (
             <div className="pad-grid">
-                    {this.gridelements}
+                    {this.createGrid()}
             </div>
         );
     }

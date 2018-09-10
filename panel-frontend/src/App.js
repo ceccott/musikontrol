@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Channel from './components/Channel.js'
 import PadGrid from './components/PadGrid.js'
+import KnobGrid from './components/KnobGrid.js'
 import socketIoClient from 'socket.io-client';
 
 var cnt = 0;
@@ -57,11 +58,13 @@ class App extends Component {
         
         this.gridelements=[]
         
-        for (var i = 0, len = 2; i < len; i++) {
+        for (var i = 0, len = 3; i < len; i++) {
             this.gridelements.push(<Channel socket={this.socket}/>);
         }
         
         this.gridelements.push(<PadGrid pad_num='12'/>);
+        
+        this.gridelements.push(<KnobGrid pad_num='9'/>);
 
         return (
         <div className="App">
@@ -69,13 +72,9 @@ class App extends Component {
                 <img src={logo} className="App-logo" alt="logo" />
                 <h1 className="App-title">KonTroller</h1>
             </header>
-            <p className="App-intro">
-            </p>
-            <body className="App-body">
                 <div className="grid-container">
                     {this.gridelements}
                 </div>
-            </body>
         </div>
         );
     }

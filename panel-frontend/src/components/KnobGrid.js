@@ -10,20 +10,22 @@ class KnobGrid extends Component {
         this.state={
             config:{},
             endpoint:'localhost:4001',
-           k_value:50 
+            cc_ids:this.props.get_cc_ids(this.props.pad_num),
+            k_value:new Array(this.props.pad_num).map(Number.prototype.valueOf,50) 
         }
-
+        
+        
         this.knob_style={
-            angleOffset:'180',
-            angleArc:'300',
+            angleOffset:180,
+            angleArc:300,
             displayInput:false,
-            thickness:'0.4',
+            thickness:0.4,
             lineCap:'butt',
-            width:'150',
-            height:'150',
+            width:150,
+            height:150,
             bgColor:'#444',
-            min:'0',
-            max:'127'
+            min:0,
+            max:127
         }
 
     }
@@ -37,7 +39,7 @@ class KnobGrid extends Component {
         
                 for (var el = 0, elnum = this.props.pad_num; el < elnum; el++) {
                     grid.push(
-                        <Knob className="gknob" fgColor="#ccc"{...this.knob_style} value={this.state.k_value} onChange={this.knobOnChange}/>    
+                        <Knob className="gknob" key={el} fgColor="#ccc"{...this.knob_style} value={this.state.k_value} onChange={this.knobOnChange}/>    
                     );
                 }
         

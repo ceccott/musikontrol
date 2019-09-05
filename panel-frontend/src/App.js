@@ -9,7 +9,7 @@ import socketIoClient from 'socket.io-client';
 var cnt = 0;
 
 class App extends Component {
-    
+
     constructor(){
         super();
         this.state = {
@@ -34,8 +34,8 @@ class App extends Component {
         } catch (e) {
             console.log(e);
         }
-        
-    
+
+
     }
 
     componentWillReceiveProps(){
@@ -45,7 +45,7 @@ class App extends Component {
     componentWillUpdate(){
         console.log('App will update');
     }
-    
+
     componentDidUpdate(){
         console.log('App did update');
     }
@@ -53,17 +53,17 @@ class App extends Component {
     handleChange = (newValue) => {
          this.setState({value: newValue});
        };
-    
+
     render() {
-        
+
         this.gridelements=[]
-        
+
         for (var i = 0, len = 3; i < len; i++) {
             this.gridelements.push(<Channel socket={this.socket}/>);
         }
-        
+
         this.gridelements.push(<PadGrid pad_num='12'/>);
-        
+
         this.gridelements.push(<KnobGrid pad_num='9'/>);
 
         return (
@@ -83,7 +83,7 @@ class App extends Component {
 function poke_server(period_ms) {
         var poke = setInterval(()=>{
             console.log('poking server');
-            this.socket.emit('service','test_msg'+cnt++);   
+            this.socket.emit('service','test_msg'+cnt++);
         },period_ms)
 }
 

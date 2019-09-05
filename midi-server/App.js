@@ -22,7 +22,7 @@ const vOUTname= 'musikontrol-out';
 server.listen(port,()=> console.log(`Listening on port ${port}`));
 
 
-// create virtual midi input 
+// create virtual midi input
 var virtualInput = new easymidi.Input(vINname, true);
 console.log('Created virtual MIDI input port:'+vINname);
 var virtualOutput= new easymidi.Output(vOUTname,true);
@@ -40,7 +40,7 @@ io.on("connection", socket => {
     console.log("New client connected");
 
     socket.emit("Config",config);
-        
+
     socket.on("disconnect", () => {
         console.log("Client disconnected");
     });
@@ -53,8 +53,8 @@ io.on("connection", socket => {
         } catch (e) {
             /* handle error */
             console.log(e);
-        } 
-    
+        }
+
     })
 
 });
@@ -81,7 +81,7 @@ function MIDI_tick(period_ms) {
                 value: 0,
                 channel: 15
             })
-        
+
         }
         ,period_ms)
 }
